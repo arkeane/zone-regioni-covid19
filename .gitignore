@@ -1,0 +1,7 @@
+venv/
+.idea/
+__pycache__/
+build/
+covid_zone.egg-info
+dist/
+setup.py
