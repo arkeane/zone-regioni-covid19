@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zone-Covid-19-Italia</title>
+    <link rel="stylesheet" href="../static/styles/bootstrap.min.css">
+    <link rel="stylesheet" href="../static/styles/style.css">
+</head>
+<body class="bkgrnd">
+    <div class="container-sm mx-auto text-center mt-5 bkgrnd-light border-dark rounded-3">
+        <br>
+        <form method="POST" class="form-group">
+            <div class="form-group">
+                <h4 style="color: #ECEFF4">Colore Regioni COVID-19 Italia</h4>
+                <label>
+                    <input name="text" class="form-control" placeholder="Inserisci Regione">
+                </label>
+            </div>
+            <br>
+            <button type="submit" class="btn btn-primary">Invio</button>
+        </form>
+        <br>
+        <h1 class="{{ color }}">
+            {% if color == "red" %}
+                {{ region }} Zona ROSSA
+            {% elif color == "orange" %}
+                {{ region }} Zona ARANCIONE
+            {% elif color == "yellow" %}
+                {{ region }} Zona GIALLA
+            {% elif color == "white or not found" %}
+                {{ region }} Zona BIANCA
+            {% endif %}
+        </h1>
+        <br>
+    </div>
+    <br>
+    <br>
+    <div class="container-sm mx-auto mt-5 bkgrnd-light border-dark rounded-3">
+        <br>
+        <h4 style="color: #ECEFF4"> Info</h4>
+        <p style="color: #ECEFF4">- I dati forniti sono presi dal <a style="color: #88C0D0" href="http://www.salute.gov.it/portale/nuovocoronavirus/dettaglioContenutiNuovoCoronavirus.jsp?lingua=italiano&id=5351&area=nuovoCoronavirus&menu=vuoto">sito</a>  ufficiale del Ministero della Salute attraverso Web Scraping, le regioni sono divise in 4 categorie rosse, arancioni, gialle e bianche.</p>
+        <p style="color: #ECEFF4">- Il Trentino è diviso tra la Provincia autonoma di Bolzano e la Provincia autonoma di Trento (basta inserire solo il nome del capoluogo)</p>
+        <p style="color: #ECEFF4">- L'aggiornamento dei dati dipende esclusivamente dal sito de Ministero della Salute</p>
+        <br>
+    </div>
+
+<!--footer-->
+<footer class="py-3 bg-dark fixed-bottom">
+    <div class="container">
+        <div class="row my-3">
+            <div class="col-md-5 mx-auto bold text-muted text-center small-xl">
+                © 2021 <a style="color: #88C0D0" href="https://www.ludovicopestarino.xyz">Ludovico Pestarino</a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>
