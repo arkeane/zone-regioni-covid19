@@ -2,12 +2,7 @@ from bs4 import BeautifulSoup as bs
 import requests as rq
 
 
-def scrape_zone(region):
-    url = 'http://www.salute.gov.it/portale/nuovocoronavirus/dettaglioContenutiNuovoCoronavirus.jsp?lingua=italiano' \
-          '&id=5351&area=nuovoCoronavirus&menu=vuoto '
-    response = rq.get(url, timeout=5)
-    content = bs(response.text, features="html.parser")
-
+def is_a_region(region):
     if "bolzano" in region:
         region = "provincia autonoma di bolzano"
     elif "trento" in region:
@@ -21,7 +16,30 @@ def scrape_zone(region):
     else:
         region = region
 
-    color = "white or not found"
+    regions = ["val d'aosta", "piemonte", "lombardia", "veneto", "friuli venezia giulia", "provincia autonoma di bolzano", "provincia autonoma di trento",
+               "liguria", "emilia romagna", "toscana", "marche", "umbria", "lazio", "abruzzo", "molise", "campania", "basilicata", "calabria", "puglia",
+               "sicilia", "sardegna"]
+
+    for n in regions:
+        if region == n:
+            return region
+
+    region = "not_a_region"
+    return region
+
+
+def scrape_zone(region):
+    url = 'http://www.salute.gov.it/portale/nuovocoronavirus/dettaglioContenutiNuovoCoronavirus.jsp?lingua=italiano' \
+          '&id=5351&area=nuovoCoronavirus&menu=vuoto '
+    response = rq.get(url, timeout=5)
+    content = bs(response.text, features="html.parser")
+
+    region = is_a_region(region)
+    if region == "not_a_region":
+        color = "not_found"
+        return color
+
+    color = "white"
     region = region.replace(" ", "")
 
     # RED Check

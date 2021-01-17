@@ -28,8 +28,10 @@
                 {{ region }} Zona ARANCIONE
             {% elif color == "yellow" %}
                 {{ region }} Zona GIALLA
-            {% elif color == "white or not found" %}
+            {% elif color == "white" %}
                 {{ region }} Zona BIANCA
+            {% elif color == "not_found" %}
+                {{ region }} Non è una regione Italiana
             {% endif %}
         </h1>
         <br>
@@ -41,7 +43,7 @@
         <h4 style="color: #ECEFF4"> Info</h4>
         <p style="color: #ECEFF4">- I dati forniti sono presi dal <a style="color: #88C0D0" href="http://www.salute.gov.it/portale/nuovocoronavirus/dettaglioContenutiNuovoCoronavirus.jsp?lingua=italiano&id=5351&area=nuovoCoronavirus&menu=vuoto">sito</a>  ufficiale del Ministero della Salute attraverso Web Scraping, le regioni sono divise in 4 categorie rosse, arancioni, gialle e bianche.</p>
         <p style="color: #ECEFF4">- Il Trentino è diviso tra la Provincia autonoma di Bolzano e la Provincia autonoma di Trento (basta inserire solo il nome del capoluogo)</p>
-        <p style="color: #ECEFF4">- L'aggiornamento dei dati dipende esclusivamente dal sito de Ministero della Salute</p>
+        <p style="color: #ECEFF4">- L'aggiornamento dei dati dipende esclusivamente dal sito del Ministero della Salute</p>
         <br>
     </div>
 
