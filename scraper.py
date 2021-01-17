@@ -4,20 +4,20 @@ import requests as rq
 
 def is_a_region(region):
     if "bolzano" in region:
-        region = "provincia autonoma di bolzano"
+        region = "provinciaautonomadibolzano"
     elif "trento" in region:
-        region = "provincia autonoma di trento"
+        region = "provinciaautonomaditrento"
     elif "friuli" in region:
-        region = "friuli venezia giulia"
+        region = "friuliveneziagiulia"
     elif "aosta" in region:
-        region = "val d'aosta"
+        region = "vald'aosta"
     elif "emilia" in region:
-        region = "emilia romagna"
+        region = "emiliaromagna"
     else:
         region = region
 
-    regions = ["val d'aosta", "piemonte", "lombardia", "veneto", "friuli venezia giulia", "provincia autonoma di bolzano", "provincia autonoma di trento",
-               "liguria", "emilia romagna", "toscana", "marche", "umbria", "lazio", "abruzzo", "molise", "campania", "basilicata", "calabria", "puglia",
+    regions = ["vald'aosta", "piemonte", "lombardia", "veneto", "friuli venezia giulia", "provinciaautonomadibolzano", "provinciaautonomaditrento",
+               "liguria", "emiliaromagna", "toscana", "marche", "umbria", "lazio", "abruzzo", "molise", "campania", "basilicata", "calabria", "puglia",
                "sicilia", "sardegna"]
 
     for n in regions:
@@ -34,13 +34,15 @@ def scrape_zone(region):
     response = rq.get(url, timeout=5)
     content = bs(response.text, features="html.parser")
 
+    region = region.replace(" ", "")
+
     region = is_a_region(region)
     if region == "not_a_region":
         color = "not_found"
         return color
 
     color = "white"
-    region = region.replace(" ", "")
+
 
     # RED Check
     red = (content.find("td", {"class": "redText"})).get_text()
