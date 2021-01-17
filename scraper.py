@@ -16,7 +16,7 @@ def is_a_region(region):
     else:
         region = region
 
-    regions = ["vald'aosta", "piemonte", "lombardia", "veneto", "friuli venezia giulia", "provinciaautonomadibolzano", "provinciaautonomaditrento",
+    regions = ["vald'aosta", "piemonte", "lombardia", "veneto", "friuliveneziagiulia", "provinciaautonomadibolzano", "provinciaautonomaditrento",
                "liguria", "emiliaromagna", "toscana", "marche", "umbria", "lazio", "abruzzo", "molise", "campania", "basilicata", "calabria", "puglia",
                "sicilia", "sardegna"]
 
