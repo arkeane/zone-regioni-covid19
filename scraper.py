@@ -1,4 +1,4 @@
-from bs4 import BeautifulSoup as bs
+from bs4 import BeautifulSoup as Bs
 import requests as rq
 
 
@@ -16,9 +16,9 @@ def is_a_region(region):
     else:
         region = region
 
-    regions = ["vald'aosta", "piemonte", "lombardia", "veneto", "friuliveneziagiulia", "provinciaautonomadibolzano", "provinciaautonomaditrento",
-               "liguria", "emiliaromagna", "toscana", "marche", "umbria", "lazio", "abruzzo", "molise", "campania", "basilicata", "calabria", "puglia",
-               "sicilia", "sardegna"]
+    regions = ["vald'aosta", "piemonte", "lombardia", "veneto", "friuliveneziagiulia", "provinciaautonomadibolzano",
+               "provinciaautonomaditrento", "liguria", "emiliaromagna", "toscana", "marche", "umbria", "lazio",
+               "abruzzo", "molise", "campania", "basilicata", "calabria", "puglia", "sicilia", "sardegna"]
 
     for n in regions:
         if region == n:
@@ -32,7 +32,7 @@ def scrape_zone(region):
     url = 'http://www.salute.gov.it/portale/nuovocoronavirus/dettaglioContenutiNuovoCoronavirus.jsp?lingua=italiano' \
           '&id=5351&area=nuovoCoronavirus&menu=vuoto '
     response = rq.get(url, timeout=5)
-    content = bs(response.text, features="html.parser")
+    content = Bs(response.text, features="html.parser")
 
     region = region.replace(" ", "")
 
