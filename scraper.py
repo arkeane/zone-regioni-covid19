@@ -43,7 +43,6 @@ def scrape_zone(region):
 
     color = "white"
 
-
     # RED Check
     red = (content.find("td", {"class": "redText"})).get_text()
     red_txt = red.replace(" ", "")
