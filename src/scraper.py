@@ -2,6 +2,7 @@ from bs4 import BeautifulSoup as Bs
 import requests as rq
 
 
+# check if provided string is a region
 def is_a_region(region):
     if "bolzano" in region:
         region = "provinciaautonomadibolzano"
