@@ -8,8 +8,6 @@ services:
         buildno: 1
         name: covidzone
     container_name: covidzone
-    volumes:
-      - './src:/src'
     ports:
       - '8081:8081'
     image: covidzone:latest
