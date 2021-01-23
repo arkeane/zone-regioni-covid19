@@ -1,3 +1,3 @@
 # zone-regioni-covid19
 
-Hosted at https://covidzone.live/
+Hosted at https://covidzone.live
