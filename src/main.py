@@ -1,6 +1,7 @@
 from flask import Flask, request, render_template
 from scraper import scrape_zone
 import string
+
 app = Flask(__name__)
 
 
@@ -16,8 +17,3 @@ def my_form_post():
     region = string.capwords(region)
     context = dict(region=region, color=color)
     return render_template("index.html", **context)
-
-
-# Change when using in production
-if __name__ == '__main__':
-    app.run(debug=True)
