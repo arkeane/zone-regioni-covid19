@@ -5,3 +5,4 @@ build/
 covid_zone.egg-info
 dist/
 setup.py
+.vscode/
