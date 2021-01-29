@@ -5,20 +5,20 @@ import requests as rq
 # check if provided string is a region
 def is_a_region(region):
     if "bolzano" in region:
-        region = "provinciaautonomadibolzano"
+        region = "pabolzano"
     elif "trento" in region:
-        region = "provinciaautonomaditrento"
+        region = "patrento"
     elif "friuli" in region:
         region = "friuliveneziagiulia"
     elif "aosta" in region:
-        region = "vald'aosta"
+        region = "valleaosta"
     elif "emilia" in region:
         region = "emiliaromagna"
     else:
         region = region
 
-    regions = ["vald'aosta", "piemonte", "lombardia", "veneto", "friuliveneziagiulia", "provinciaautonomadibolzano",
-               "provinciaautonomaditrento", "liguria", "emiliaromagna", "toscana", "marche", "umbria", "lazio",
+    regions = ["valleaosta", "piemonte", "lombardia", "veneto", "friuliveneziagiulia", "pabolzano",
+               "patrento", "liguria", "emiliaromagna", "toscana", "marche", "umbria", "lazio",
                "abruzzo", "molise", "campania", "basilicata", "calabria", "puglia", "sicilia", "sardegna"]
 
     for n in regions:
@@ -45,27 +45,25 @@ def scrape_zone(region):
     color = "white"
 
     # RED Check
-    red = (content.find("td", {"class": "redText"})).get_text()
+    red = (content.find("div", {"style": "text-align:center;background-color:#f7e4e5;color:#000;padding:10px;border: "
+                                         "1px solid #dd222a;"})).get_text()
     red_txt = red.replace(" ", "")
-    red_list = list(red_txt.split())
-    for n in red_list:
-        if region == n.lower():
-            color = "red"
+    red_txt = red_txt.lower()
+    if region in red_txt:
+        color = "red"
 
-    # ORANGE Check
-    orange = (content.find("td", {"class": "orangeText"})).get_text()
+    orange = (content.find("div", {"style": "text-align:center;background-color:#ffecd7;color:#000;padding:10px"
+                                            ";border: 1px solid #e78314;"})).get_text()
     orange_txt = orange.replace(" ", "")
-    orange_list = list(orange_txt.split())
-    for n in orange_list:
-        if region == n.lower():
-            color = "orange"
+    orange_txt = orange_txt.lower()
+    if region in orange_txt:
+        color = "orange"
 
-    # YELLOW Check
-    yellow = (content.find("td", {"class": "yellowText"})).get_text()
+    yellow = (content.find("div", {"style": "text-align:center;background-color:#fff7bd;color:#000;padding:10px"
+                                            ";border: 1px solid #f8c300;"})).get_text()
     yellow_txt = yellow.replace(" ", "")
-    yellow_list = list(yellow_txt.split())
-    for n in yellow_list:
-        if region == n.lower():
-            color = "yellow"
+    yellow_txt = yellow_txt.lower()
+    if region in yellow_txt:
+        color = "yellow"
 
     return color
