@@ -45,22 +45,19 @@ def scrape_zone(region):
     color = "white"
 
     # RED Check
-    red = (content.find("div", {"style": "text-align:center;background-color:#f7e4e5;color:#000;padding:10px;border: "
-                                         "1px solid #dd222a;"})).get_text()
+    red = (content.find("div", {"style": "text-align:center;color:#dd222a;padding:10px;border: 1px solid #dd222a;"})).get_text()
     red_txt = red.replace(" ", "")
     red_txt = red_txt.lower()
     if region in red_txt:
         color = "red"
 
-    orange = (content.find("div", {"style": "text-align:center;background-color:#ffecd7;color:#000;padding:10px"
-                                            ";border: 1px solid #e78314;"})).get_text()
+    orange = (content.find("div", {"style": "text-align:center;color:#e78314;padding:10px;border: 1px solid #e78314;"})).get_text()
     orange_txt = orange.replace(" ", "")
     orange_txt = orange_txt.lower()
     if region in orange_txt:
         color = "orange"
 
-    yellow = (content.find("div", {"style": "text-align:center;background-color:#fff7bd;color:#000;padding:10px"
-                                            ";border: 1px solid #f8c300;"})).get_text()
+    yellow = (content.find("div", {"style": "text-align:center;color:#f8c300;padding:10px;border: 1px solid #f8c300;"})).get_text()
     yellow_txt = yellow.replace(" ", "")
     yellow_txt = yellow_txt.lower()
     if region in yellow_txt:
