@@ -12,8 +12,7 @@ def my_form():
 
 @app.route('/', methods=['POST'])
 def my_form_post():
-    region = request.form['text'].lower()
-    color = scrape_zone(region)
-    region = string.capwords(region)
-    context = dict(region=region, color=color)
+    region = request.form['text']
+    scrapedata = scrape_zone(region)
+    context = dict(region=scrapedata["region"], color=scrapedata["color"])
     return render_template("index.html", **context)

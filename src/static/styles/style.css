@@ -6,20 +6,24 @@
     background: #434C5E;
 }
 
-.red {
+.rosso {
     color: #BF616A;
 }
 
-.orange{
+.arancione{
     color: #D08770;
 }
 
-.yellow{
+.giallo{
     color: #EBCB8B;
 }
 
-.white{
+.bianca{
     color: #ECEFF4;
+}
+
+.verde{
+    color: #A3BE8C;
 }
 
 p {

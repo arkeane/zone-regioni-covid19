@@ -39,13 +39,15 @@
         </form>
         <br>
         <h1 class="{{ color }}">
-            {% if color == "red" %}
+            {% if color == "rosso" %}
                 {{ region }} Zona ROSSA
-            {% elif color == "orange" %}
+            {% elif color == "arancione" %}
                 {{ region }} Zona ARANCIONE
-            {% elif color == "yellow" %}
+            {% elif color == "giallo" %}
                 {{ region }} Zona GIALLA
-            {% elif color == "white" %}
+            {% elif color == "verde" %}
+                {{ region }} Zona VERDE
+            {% elif color == "bianca" %}
                 {{ region }} Zona BIANCA
             {% elif color == "not_found" %}
                 {{ region }} Non è una regione Italiana
@@ -58,9 +60,11 @@
     <div class="container-sm mx-auto mt-5 bkgrnd-light border-dark rounded-3">
         <br>
         <h4 style="color: #ECEFF4"> Info</h4>
-        <p style="color: #ECEFF4">- I dati forniti sono presi dal <a style="color: #88C0D0" href="http://www.salute.gov.it/portale/nuovocoronavirus/dettaglioContenutiNuovoCoronavirus.jsp?lingua=italiano&id=5351&area=nuovoCoronavirus&menu=vuoto">sito</a>  ufficiale del Ministero della Salute attraverso Web Scraping, le regioni sono divise in 4 categorie rosse, arancioni, gialle e bianche.</p>
-        <p style="color: #ECEFF4">- Il Trentino è diviso tra la Provincia autonoma di Bolzano e la Provincia autonoma di Trento (basta inserire solo il nome del capoluogo)</p>
-        <p style="color: #ECEFF4">- L'aggiornamento dei dati dipende esclusivamente dal sito del Ministero della Salute</p>
+        <ul>
+            <li style="color: #ECEFF4"> I dati forniti sono presi dal <a style="color: #88C0D0" href="http://www.salute.gov.it/portale/nuovocoronavirus/dettaglioContenutiNuovoCoronavirus.jsp?lingua=italiano&id=5351&area=nuovoCoronavirus&menu=vuoto">sito</a>  ufficiale del Ministero della Salute attraverso Web Scraping, le regioni sono divise in 4 categorie rosse, arancioni, gialle e bianche.</li>
+            <li style="color: #ECEFF4"> Le regioni seguono la nomenclatura ISTAT</li>
+            <li style="color: #ECEFF4"> L'aggiornamento dei dati dipende esclusivamente dal sito del Ministero della Salute</li>
+        </ul>
         <br>
     </div>
 
